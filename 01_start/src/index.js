@@ -5,6 +5,7 @@ import App from './App';
 import Timer from './Chap/Timer';
 import Collection from './Chap/Collection';
 import { Form } from './Form/Form';
+import Formwork from './Form/Formwork';
 
 ReactDOM.render(
     <React.StrictMode>
@@ -15,8 +16,11 @@ ReactDOM.render(
                 <Collection />
             </div>
             <div className="second">
-                <h1>FORM-1</h1>
+                <h2>FORM-1</h2>
                 <Form />
+            </div>
+            <div>
+                <Formwork />
             </div>
         </div>
     </React.StrictMode>,
