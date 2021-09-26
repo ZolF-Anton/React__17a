@@ -1,19 +1,19 @@
 function Header() {
     return (
-        <nav className="teal lighten-1">
-            <div className="nav-wrapper">
-                <a href="!#" className="brand-logo">
-                    React Movies
+        <nav className='teal lighten-1'>
+            <div className='nav-wrapper'>
+                <a href='!#' className='brand-logo'>
+                    Pirate Bay Movies
                 </a>
-                <ul id="nav-mobile" className="right hide-on-med-and-down">
+                <ul id='nav-mobile' className='right hide-on-med-and-down'>
                     <li>
-                        <a href="!#">Repo</a>
+                        <a href='!#'>Repo</a>
                     </li>
                     <li>
-                        <a href="!#">My Page</a>
+                        <a href='!#'>My Page</a>
                     </li>
                     <li>
-                        <a href="!#">About</a>
+                        <a href='!#'>About</a>
                     </li>
                 </ul>
             </div>

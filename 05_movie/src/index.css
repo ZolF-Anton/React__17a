@@ -15,10 +15,33 @@ code {
 }
 
 nav {
-    padding: 0px 75px;
+    padding-left: 75px;
 }
 
 .content {
     min-height: calc(100vh - 134px);
     padding: 1.5rem 0;
+}
+.movies {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
+    gap: 1rem;
+}
+.btn_search {
+    position: absolute;
+    top: 0rem;
+    right: 0.7rem;
+}
+
+.btn_radio {
+    display: flex;
+    justify-content: flex-start;
+    gap: 1.3rem;
+}
+
+@media screen and (max-width: 555px) {
+    nav .brand-logo {
+        left: 0%;
+        transform: translateX(0%);
+    }
 }
