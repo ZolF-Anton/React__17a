@@ -32,11 +32,11 @@ function Main() {
                     setErrorLoad(true);
                     console.log(data.Error);
                 }
-            }); //setMovies(data.Search)
+            });
     };
 
     return (
-        <main className='container content'>
+        <main className="container content">
             <Search searchMovies={searchMovies} />
             {errorLoad ? <Preloader /> : <Movielist movies={movies} errorLoad={errorLoad} />}
         </main>

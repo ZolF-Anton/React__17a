@@ -4,7 +4,7 @@ function Movielist(props) {
     const { movies, errorLoad } = props;
 
     return (
-        <div className='movies'>
+        <div className="movies">
             {errorLoad ? (
                 <h3>ERRORz</h3>
             ) : (

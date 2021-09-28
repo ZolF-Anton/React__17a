@@ -11,41 +11,35 @@ function Search(props) {
     };
 
     let handleFilter = (event) => {
-        setType(
-            () => event.target.dataset.type,
-            () => props.searchMovies(search, type)
-        );
+        setType(() => event.target.dataset.type);
     };
-    // let handleFilter = (event) => {
-    // 	setType(event.target.dataset.type);
-    // 	props.searchMovies(search);
-    // };
+
     return (
         <>
-            <div className='input-field col s6'>
+            <div className="input-field col s6">
                 <input
-                    placeholder='Search'
-                    id='last_name'
-                    type='search'
-                    className='validate'
+                    placeholder="Search"
+                    id="last_name"
+                    type="search"
+                    className="validate"
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
                     onKeyDown={handleKey}
                 />
                 <button
                     onClick={() => props.searchMovies(search, type)}
-                    className='waves-effect waves-light btn btn_search'
+                    className="waves-effect waves-light btn btn_search"
                 >
-                    <i className='material-icons left'>search</i>search
+                    <i className="material-icons left">search</i>search
                 </button>
             </div>
-            <div className='btn_radio'>
+            <div className="btn_radio">
                 <label>
                     <input
-                        className='with-gap'
-                        name='type'
-                        type='radio'
-                        data-type='all'
+                        className="with-gap"
+                        name="type"
+                        type="radio"
+                        data-type="all"
                         onChange={handleFilter}
                         checked={type === 'all'}
                     />
@@ -54,10 +48,10 @@ function Search(props) {
 
                 <label>
                     <input
-                        className='with-gap'
-                        name='type'
-                        type='radio'
-                        data-type='movie'
+                        className="with-gap"
+                        name="type"
+                        type="radio"
+                        data-type="movie"
                         onChange={handleFilter}
                         checked={type === 'movie'}
                     />
@@ -66,10 +60,10 @@ function Search(props) {
 
                 <label>
                     <input
-                        className='with-gap'
-                        name='type'
-                        type='radio'
-                        data-type='series'
+                        className="with-gap"
+                        name="type"
+                        type="radio"
+                        data-type="series"
                         onChange={handleFilter}
                         checked={type === 'series'}
                     />
@@ -77,10 +71,10 @@ function Search(props) {
                 </label>
                 <label>
                     <input
-                        className='with-gap'
-                        name='type'
-                        type='radio'
-                        data-type='episode'
+                        className="with-gap"
+                        name="type"
+                        type="radio"
+                        data-type="episode"
                         onChange={handleFilter}
                         checked={type === 'episode'}
                     />
