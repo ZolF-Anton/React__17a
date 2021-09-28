@@ -6,19 +6,19 @@ import { useState, useEffect } from 'react';
 
 function Main() {
     const [movies, setMovies] = useState([]);
-    const [errorLoad, setErrorLoad] = useState(false);
-    //const [find, setfind] = useState('');
+    const [errorLoad, setErrorLoad] = useState(true);
 
     // Аналогично componentDidMount и componentDidUpdate:
     useEffect(() => {
-        fetch(`http://www.omdbapi.com/?apikey=7cd6a2d1&s=bad&page=1`)
+        fetch(`https://www.omdbapi.com/?apikey=7cd6a2d1&s=bad&page=1`)
             .then((response) => response.json())
-            .then((data) => setMovies(data.Search));
+            .then((data) => setMovies(data.Search))
+            .then(setErrorLoad(false));
     }, []);
 
     let searchMovies = (str, type) => {
         fetch(
-            `http://www.omdbapi.com/?apikey=7cd6a2d1&s=${str}${
+            `https://www.omdbapi.com/?apikey=7cd6a2d1&s=${str}${
                 type === 'all' ? '' : `&type=${type}`
             }`
         )
@@ -30,13 +30,12 @@ function Main() {
                 } else if (data.Response === 'False') {
                     setMovies([]);
                     setErrorLoad(true);
-                    console.log(data.Error);
                 }
             });
     };
 
     return (
-        <main className="container content">
+        <main className='container content'>
             <Search searchMovies={searchMovies} />
             {errorLoad ? <Preloader /> : <Movielist movies={movies} errorLoad={errorLoad} />}
         </main>
