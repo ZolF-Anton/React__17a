@@ -1,12 +1,16 @@
 import Movie from './Movie';
+import Preloader from '../components/preloader';
 
 function Movielist(props) {
     const { movies, errorLoad } = props;
 
     return (
-        <div className="movies">
+        <div className='movies'>
             {errorLoad ? (
-                <h3>ERRORz</h3>
+                <>
+                    <Preloader />
+                    <h4>Nothing...</h4>
+                </>
             ) : (
                 movies.map((movie) => {
                     return <Movie key={movie.imdbID} {...movie} />;

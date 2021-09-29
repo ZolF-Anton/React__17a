@@ -38,7 +38,9 @@ nav {
     justify-content: flex-start;
     gap: 1.3rem;
 }
-
+.long_grip {
+    grid-column: 1/5;
+}
 @media screen and (max-width: 555px) {
     nav .brand-logo {
         left: 0%;
