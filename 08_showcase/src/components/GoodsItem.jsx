@@ -1,7 +1,36 @@
 function GoodsItem(props) {
     const { mainId, displayName, displayDescription, price, displayAssets, buyAllowed } = props;
-}
+    return (
+        <div className='card' id={mainId}>
+            <div className='card-image waves-effect waves-block waves-light'>
+                <img
+                    className='activator'
+                    src={displayAssets[0].full_background}
+                    alt={`img of ${displayName}`}
+                />
+            </div>
+            <div className='card-content'>
+                <div className='card-title activator grey-text text-darken-4'>{displayName}</div>
+                <p>{displayDescription}</p>
 
+                <div className='card-action info_bottom'>
+                    <button className='waves-effect waves-light btn-small'>Купить</button>
+                    <div className='text-darken-4 right'>{price.finalPrice}</div>
+                </div>
+            </div>
+            <div className='card-reveal'>
+                <span className='card-title grey-text text-darken-4'>
+                    Card Title<i className='material-icons right'>close</i>
+                </span>
+                <p>
+                    Here is some more information about this product that is only revealed once
+                    clicked on.
+                </p>
+            </div>
+        </div>
+    );
+}
+export default GoodsItem;
 const reqFromFNIO = {
     result: true,
     fullShop: true,
