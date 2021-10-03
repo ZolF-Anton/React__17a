@@ -50,7 +50,7 @@ export default function Timer() {
     };
 
     return (
-        <div className='Timer'>
+        <div className="Timer">
             <h3>React Timer</h3>
             <h4>{count}</h4>
             {!isCounting ? (
