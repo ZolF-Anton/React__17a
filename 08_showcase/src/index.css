@@ -51,6 +51,22 @@ nav {
     flex-direction: column;
     min-height: 200px;
 }
+.cart {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+
+    cursor: pointer;
+    z-index: 5;
+    padding: 1rem;
+}
+
+@media screen and (min-width: 767px) {
+    .cart {
+        top: 5rem;
+        bottom: unset;
+    }
+}
 
 @media screen and (max-width: 555px) {
     nav .brand-logo {

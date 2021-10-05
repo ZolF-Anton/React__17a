@@ -14,8 +14,17 @@ function GoodsItem(props) {
                 <p>{displayDescription}</p>
 
                 <div className='card-action info_bottom'>
-                    <button className='waves-effect waves-light btn-small'>Купить</button>
-                    <div className='text-darken-4 right'>{price.finalPrice}</div>
+                    <button
+                        className={`waves-effect waves-light ${
+                            buyAllowed ? `btn` : `btn disabled`
+                        }`}
+                    >
+                        {' '}
+                        Купить{' '}
+                    </button>
+                    <div className='text-darken-4 right'>
+                        <span style={{ fontSize: '1.7rem' }}>{price.finalPrice} ₽</span>
+                    </div>
                 </div>
             </div>
             <div className='card-reveal'>
