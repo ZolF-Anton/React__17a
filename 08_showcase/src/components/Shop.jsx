@@ -9,6 +9,7 @@ function Shop() {
     const [loading, setLoading] = useState(true);
     const [order, setOrder] = useState([]);
     const [counter, setCounter] = useState(0);
+    const [isBasketShow, setIsBasketShow] = useState(false);
 
     const countWork = () => {
         setCounter((prevState) => prevState + 1);
@@ -55,7 +56,7 @@ function Shop() {
     }, []);
 
     return (
-        <main className='container content '>
+        <main className="container content ">
             <Cart quantity={counter} />
             {loading ? <Preloader /> : <GoodsList goods={goods} addToBasket={addToBasket} />}
         </main>
