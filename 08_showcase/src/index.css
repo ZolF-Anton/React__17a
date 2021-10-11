@@ -74,3 +74,40 @@ nav {
         transform: translateX(0%);
     }
 }
+
+.basket-list {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: aliceblue;
+    width: 50rem;
+    max-width: 90%;
+    box-shadow: -1px 3px 8px 5px #0b6767, 2px 5px 16px 0px #043030,
+        5px 5px 15px 5px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    animation: show 300ms ease-in-out;
+}
+
+.basket-close {
+    cursor: pointer;
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    color: aliceblue;
+}
+
+.basket-del {
+    cursor: pointer;
+}
+
+@keyframes show {
+    from {
+        top: 70%;
+        opacity: 0;
+    }
+    to {
+        top: 50%;
+        opacity: 1;
+    }
+}

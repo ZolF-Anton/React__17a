@@ -3,13 +3,14 @@ import { API_KEY, API_URL } from '../config';
 import Preloader from './Preloader';
 import GoodsList from './GoodsList';
 import Cart from './Cart';
+import BasketList from './BasketList';
 
 function Shop() {
     const [goods, setGoods] = useState([]);
     const [loading, setLoading] = useState(true);
     const [order, setOrder] = useState([]);
     const [counter, setCounter] = useState(0);
-    const [isBasketShow, setIsBasketShow] = useState(false);
+    const [isBasketShow, setBasketShow] = useState(false);
 
     const countWork = () => {
         setCounter((prevState) => prevState + 1);
@@ -17,7 +18,6 @@ function Shop() {
 
     const addToBasket = (item) => {
         const itemIndex = order.findIndex((orderItem) => orderItem.mainId === item.mainId);
-
         if (itemIndex < 0) {
             const newItem = {
                 ...item,
@@ -41,6 +41,44 @@ function Shop() {
         }
     };
 
+    const removeFromBasket = (itemId) => {
+        const newOrder = order.filter((el) => el.mainId !== itemId);
+        setOrder(newOrder);
+    };
+
+    const incQuantity = (itemId) => {
+        const newOrder = order.map((el) => {
+            if (el.mainId === itemId) {
+                const newQuantity = el.quantity + 1;
+                return {
+                    ...el,
+                    quantity: newQuantity,
+                };
+            } else {
+                return el;
+            }
+        });
+        setOrder(newOrder);
+    };
+    const decQuantity = (itemId) => {
+        const newOrder = order.map((el) => {
+            if (el.mainId === itemId) {
+                const newQuantity = el.quantity - 1;
+                return {
+                    ...el,
+                    quantity: newQuantity >= 0 ? newQuantity : 0,
+                };
+            } else {
+                return el;
+            }
+        });
+        setOrder(newOrder);
+    };
+
+    const handleBasketShow = () => {
+        setBasketShow((prevState) => !prevState);
+    };
+
     useEffect(function getGoods() {
         fetch(API_URL, { headers: { Authorization: API_KEY } })
             .then((response) => response.json())
@@ -57,8 +95,17 @@ function Shop() {
 
     return (
         <main className="container content ">
-            <Cart quantity={counter} />
+            <Cart quantity={counter} handleBasketShow={handleBasketShow} />
             {loading ? <Preloader /> : <GoodsList goods={goods} addToBasket={addToBasket} />}
+            {isBasketShow && (
+                <BasketList
+                    order={order}
+                    handleBasketShow={handleBasketShow}
+                    removeFromBasket={removeFromBasket}
+                    incQuantity={incQuantity}
+                    decQuantity={decQuantity}
+                />
+            )}
         </main>
     );
 }
