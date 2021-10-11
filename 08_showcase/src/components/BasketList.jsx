@@ -29,6 +29,9 @@ function BasketList(props) {
                 <li className="collection-item">Корзина Пуста</li>
             )}
             <li className="collection-item active">Итого: {totalPrice} ₽</li>
+            <li className="collection-checkout">
+                <button className="secondary-content btn btn-small">ОФОРМИТЬ</button>
+            </li>
             <li className="material-icons basket-close" onClick={handleBasketShow}>
                 clear
             </li>

@@ -100,6 +100,19 @@ nav {
 .basket-del {
     cursor: pointer;
 }
+.secondary-content {
+    display: flex;
+    column-gap: 2rem;
+}
+.collection-checkout {
+    display: flex;
+    padding: 0.4rem 0;
+    justify-content: center;
+}
+#toast-container {
+    top: 2.7rem !important;
+    animation: fade 277ms ease-in-out;
+}
 
 @keyframes show {
     from {
@@ -109,5 +122,15 @@ nav {
     to {
         top: 50%;
         opacity: 1;
+    }
+}
+@keyframes fade {
+    from {
+        transform: translateY(2rem);
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0rem);
     }
 }
