@@ -1,5 +1,11 @@
 export function reducer(state, { type, payload }) {
     switch (type) {
+        case 'SET_GOODS':
+            return {
+                ...state,
+                goods: payload || [],
+                loading: false,
+            };
         case 'ADD_TO_BASKET': {
             const itemIndex = state.order.findIndex(
                 (orderItem) => orderItem.mainId === payload.mainId
@@ -36,6 +42,7 @@ export function reducer(state, { type, payload }) {
             return {
                 ...state,
                 order: state.order.map((el) => {
+                    console.log(el);
                     if (el.mainId === payload.itemId) {
                         const newQuantity = el.quantity + 1;
                         return {
@@ -51,7 +58,7 @@ export function reducer(state, { type, payload }) {
             return {
                 ...state,
                 order: state.order.map((el) => {
-                    if (el.mainId === payload.itemId) {
+                    if (el.mainId === payload.mainId) {
                         const newQuantity = el.quantity - 1;
                         return {
                             ...el,
@@ -66,11 +73,11 @@ export function reducer(state, { type, payload }) {
             return { ...state, alertName: '' };
 
         case 'REMOVE_FROM_BASKET':
-            return { ...state, order: state.order.filter((el) => el.mainId !== payload.itemId) };
+            return { ...state, order: state.order.filter((el) => el.mainId !== payload.mainId) };
         case 'TOGLE_BASKET':
             return {
                 ...state,
-                isBasketShow: state.isBasketShow((prevState) => !prevState),
+                isBasketShow: !state.isBasketShow,
             };
         default:
             return state;

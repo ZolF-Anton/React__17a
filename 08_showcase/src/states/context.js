@@ -23,18 +23,24 @@ export const ContextProvider = ({ children }) => {
         dispatch({ type: 'ADD_TO_BASKET', payload: item });
     };
 
-    value.incQuantity = (itemId) => {
-        dispatch({ type: 'INC_QUANTITY', payload: { mainId: itemId } });
+    value.incQuantity = (Id) => {
+        console.log('incQuantity');
+        dispatch({ type: 'INC_QUANTITY', payload: { itemId: Id } });
     };
-    value.decQuantity = (itemId) => {
-        dispatch({ type: 'DEC_QUANTITY', payload: { mainId: itemId } });
+    value.decQuantity = (mainId) => {
+        console.log('decQuantity');
+        dispatch({ type: 'DEC_QUANTITY', payload: { mainId: mainId } });
     };
 
-    value.removeFromBasket = (itemId) => {
-        dispatch({ type: 'REMOVE_FROM_BASKET', payload: { mainId: itemId } });
+    value.removeFromBasket = (mainId) => {
+        console.log('remove');
+        dispatch({ type: 'REMOVE_FROM_BASKET', payload: { mainId: mainId } });
     };
     value.handleBasketShow = () => {
         dispatch({ type: 'TOGLE_BASKET' });
+    };
+    value.setGoods = (data) => {
+        dispatch({ type: 'SET_GOODS', payload: data });
     };
     return <ShopContext.Provider value={value}>{children}</ShopContext.Provider>;
 };
