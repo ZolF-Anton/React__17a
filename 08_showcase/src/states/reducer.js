@@ -17,11 +17,9 @@ export function reducer(state, { type, payload }) {
                     quantity: 1,
                 };
                 newOrder = [...state.order, newItem];
-                //countWork();
             } else {
                 newOrder = state.order.map((orderItem, index) => {
                     if (index === itemIndex) {
-                        //countWork();
                         return {
                             ...orderItem,
                             quantity: orderItem.quantity + 1,
@@ -42,7 +40,6 @@ export function reducer(state, { type, payload }) {
             return {
                 ...state,
                 order: state.order.map((el) => {
-                    console.log(el);
                     if (el.mainId === payload.itemId) {
                         const newQuantity = el.quantity + 1;
                         return {
