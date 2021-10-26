@@ -1,6 +1,6 @@
 function CategoryItem(props) {
-    const { id } = props;
+    const { idCategory } = props;
 
-    return <div className="card">{id}</div>;
+    return <div className='card'>{idCategory}</div>;
 }
 export default CategoryItem;
