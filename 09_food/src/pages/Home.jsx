@@ -8,7 +8,6 @@ function Home() {
     const [catalog, setCatalog] = useState([]);
 
     useEffect(() => {
-        console.log('useRff loading...');
         getAllCategories().then((data) => {
             setCatalog(data.categories);
         });
