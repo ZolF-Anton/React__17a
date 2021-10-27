@@ -7,9 +7,9 @@ const getMealById = async (mealId) => {
 
 const getAllCategories = async () => {
     const response = await fetch(API_URL + 'categories.php');
-
-    return await response.json().then(console.log('response'));
+    return await response.json();
 };
+
 const getFilteredCategory = async (catName) => {
     const response = await fetch(API_URL + `filter.php?c=${catName}`);
     return await response.json();
