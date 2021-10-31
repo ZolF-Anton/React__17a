@@ -13,20 +13,20 @@ function Recipe() {
     }, [id]);
     return (
         <>
-            <button className="btn" onClick={goBack}>
+            <button className='btn' onClick={goBack}>
                 Go Back
             </button>
             {!recipe.idMeal ? (
                 <Preloader />
             ) : (
-                <div className="recipe">
+                <div className='recipe'>
                     <img src={recipe.strMealThumb} alt={recipe.strMeal} />
                     <h2>{recipe.strMeal}</h2>
                     <h5>{recipe.strCategory}</h5>
                     {recipe.strArea !== 'Unknown' && <h5>{recipe.strArea}'s Cousine</h5>}
-                    <p>{recipe.strInstructions}</p>
+                    <p className='box'>{recipe.strInstructions}</p>
 
-                    <table className="centered striped">
+                    <table className='centered striped'>
                         <thead>
                             <tr>
                                 <th>Ingredient</th>
@@ -49,14 +49,14 @@ function Recipe() {
                     </table>
 
                     {recipe.strYoutube && (
-                        <div className="row">
+                        <div className='row'>
                             <h5>Video</h5>
                             <iframe
                                 title={id}
                                 src={`https://www.youtube.com/embed/${recipe.strYoutube.slice(
                                     -11
                                 )}`}
-                                frameborder="0"
+                                frameborder='0'
                                 allowFullScreen
                             ></iframe>
                         </div>

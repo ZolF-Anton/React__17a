@@ -5,7 +5,7 @@ function Header() {
         <nav className='teal lighten-1'>
             <div className='nav-wrapper'>
                 <a href='https://anton-zolf.su' className='brand-logo'>
-                    Pirate Bay Le Guide Michelin
+                    Pirate Bay - Michelin
                 </a>
                 <ul id='nav-mobile' className='right hide-on-med-and-down'>
                     <li>
