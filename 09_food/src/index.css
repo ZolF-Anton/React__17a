@@ -43,10 +43,23 @@ h1 span {
 .card .card-image .card-title {
     color: #282c34;
     position: absolute;
-    bottom: 0;
+    bottom: -25px;
     left: 0;
     max-width: 100%;
     padding: 0 36px;
     font-size: 34px;
     font-weight: bold;
+}
+
+img,
+iframe {
+    max-width: 100%;
+}
+iframe {
+    width: 600px;
+    height: 350px;
+}
+
+.recipe {
+    background-color: whitesmoke;
 }
